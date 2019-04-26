@@ -4,13 +4,13 @@ name := """elastic4s-sample"""
 
 version := "0.0.1"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.8"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
 libraryDependencies ++= {
-  val elastic4sV = "5.0.0"
-  val scalaTestV = "3.0.0"
+  val elastic4sV = "5.0.4"
+  val scalaTestV = "3.0.5"
   val Log4jVersion = "2.6.2"
   Seq(
     "com.sksamuel.elastic4s" %% "elastic4s-core" % elastic4sV,

@@ -1,0 +1,36 @@
+version: '3.7'
+
+services: 
+  elasticsearch:
+    container_name: elasticsearch
+#    image:  docker.elastic.co/elasticsearch/elasticsearch:5.6.16 
+    build: .
+    privileged: true         
+    sysctls:
+      net.core.somaxconn: '511' 
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1 
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock   
+      - esdata1:/usr/share/elasticsearch/data
+#      - '$PWD/esdata':/usr/share/elasticsearch/data 
+    environment: 
+    - TZ=Asia/Taipei 
+    - cluster.name=elasticsearch
+#    - xpack.security.enabled=false 
+    - discovery.type=single-node    
+    - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    - bootstrap.memory_lock=true
+    #- tribe.t1.xpack.security.enabled=false
+    #- xpack.security.enabled=false
+    #    network_mode:  "host"
+    # Uncomment to expose the storage port for testing
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+volumes:
+  esdata1:
+    driver: local

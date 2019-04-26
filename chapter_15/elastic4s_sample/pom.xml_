@@ -10,8 +10,8 @@
     <dependencies>
         <dependency>
             <groupId>com.sksamuel.elastic4s</groupId>
-            <artifactId>elastic4s-core_2.11</artifactId>
-            <version>5.0.0</version>
+            <artifactId>elastic4s-core_2.12</artifactId>
+            <version>5.0.4</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
